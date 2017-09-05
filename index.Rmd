@@ -1,0 +1,21 @@
+---
+title: "Leaflet map bay area, September 04, 2017"
+output: html_document
+---
+
+
+
+```{r echo = FALSE}
+library(leaflet)
+df <- data.frame(lat = c(37.7949489, 37.8262424, 37.8046085, 37.5887659), lng = c(-122.4450093, -122.4220487, -122.463102, -122.32855))
+hogofogoIcon <- makeIcon(iconUrl = "~/Projects/builddataprodWk2/Hogofogo.png", iconWidth = 25, iconHeight = 25)
+hogotext <- c("<a href='https://www.google.com/maps/@37.7949489,-122.4450093,3a,75y,32.85h,82.82t/data=!3m7!1e1!3m5!1sP3Yf8MexWk0nNFdz74AedQ!2e0!6s%2F%2Fgeo3.ggpht.com%2Fcbk%3Fpanoid%3DP3Yf8MexWk0nNFdz74AedQ%26output%3Dthumbnail%26cb_client%3Dmaps_sv.tactile.gps%26thumb%3D2%26w%3D203%26h%3D100%26yaw%3D111.60258%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656'>Bye Consulate</a>",
+             "<a href='https://www.google.com/maps/@37.8262424,-122.4220487,3a,75y,66h,73t/data=!3m8!1e1!3m6!1sAF1QipNFaWlNMFlA0nXxj6OXxJnvskXC8APMMgmnfuuu!2e10!3e11!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipNFaWlNMFlA0nXxj6OXxJnvskXC8APMMgmnfuuu%3Dw203-h100-k-no-pi-17.333334-ya293.125-ro0-fo100!7i8704!8i4352'>Alcatraz</a>",
+             "<a href='https://www.google.com/maps/@37.8046085,-122.463102,3a,75y,2.91h,83.8t/data=!3m7!1e1!3m5!1sCIiFuvlAAFQ2zl4KBWZrww!2e0!6s%2F%2Fgeo2.ggpht.com%2Fcbk%3Fpanoid%3DCIiFuvlAAFQ2zl4KBWZrww%26output%3Dthumbnail%26cb_client%3Dmaps_sv.tactile.gps%26thumb%3D2%26w%3D203%26h%3D100%26yaw%3D320.0521%26pitch%3D-3.041667%26thumbfov%3D100!7i13312!8i6656'>Crissy Field</a>",
+             "<a href='https://www.google.com/maps/@37.5887659,-122.32855,3a,75y,359.99h,81.87t/data=!3m6!1e1!3m4!1sw3sm_S4TIJTAC31tkXfPOg!2e0!7i13312!8i6656'>Coyote Point</a>")
+mymap <- df %>% leaflet() %>% addTiles() %>% addMarkers(icon = hogofogoIcon, popup = hogotext, clusterOptions = markerClusterOptions())
+
+
+mymap
+```
+
